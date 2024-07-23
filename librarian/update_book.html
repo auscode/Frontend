@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Book</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <a href="./dashboard.html"><button>Dashboard</button></a>
+    <h1>Update Book</h1>
+    <form id="updateBookForm">
+        <label for="id">Book ID:</label>
+        <input type="text" id="id" name="id" placeholder="Enter ID of the book *" required>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" placeholder="Enter Title to be changed" required>
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" placeholder="Enter author to be changed" required>
+        <button type="submit">Update Book</button>
+    </form>
+    <h1>Book List</h1>
+    <div id="booksList"></div>
+    <script src="../js/books.js"></script>
+</body>
+
+</html>

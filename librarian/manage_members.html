@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Members</title>
+    <style>
+        .member-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .member-item span {
+            flex: 1;
+        }
+
+        .member-item button {
+            margin-left: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <a href="./dashboard.html"><button>Dashboard</button></a>
+    <h1>Manage Members</h1>
+    <div id="membersList"></div>
+
+    <h2>Add New Member</h2>
+    <input type="text" id="newUsername" placeholder="Username" required>
+    <input type="password" id="newPassword" placeholder="Password" required>
+    <button id="addMemberButton">Add Member</button>
+
+    <script src="../js/members.js"></script>
+</body>
+
+</html>
