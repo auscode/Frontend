@@ -1,3 +1,4 @@
+const renderUrl = "https://lib-mgmt.onrender.com";
 document.addEventListener("DOMContentLoaded", () => {
   const accessToken = localStorage.getItem("accessToken");
 
@@ -16,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (logoutButton) {
     logoutButton.addEventListener("click", async () => {
       try {
-        const response = await fetch("http://127.0.0.1:5000/auth/logout", {
+        const response = await fetch(`${renderUrl}/auth/logout`, {
           method: "POST",
           headers: {
             Authorization: "Bearer " + localStorage.getItem("accessToken"),
@@ -41,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 async function deleteOwnAccount() {
   if (confirm("Are you sure you want to delete your own account?")) {
     try {
-      const response = await fetch("http://127.0.0.1:5000/users/me", {
+      const response = await fetch(`${renderUrl}/users/me`, {
         method: "DELETE",
         headers: {
           Authorization: "Bearer " + localStorage.getItem("accessToken"),

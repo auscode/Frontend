@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const loginForm = document.getElementById("loginForm");
   const registerForm = document.getElementById("registerForm");
+  const renderUrl = "https://lib-mgmt.onrender.com";
 
   if (loginForm) {
     loginForm.addEventListener("submit", async (e) => {
@@ -9,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const password = document.getElementById("password").value;
 
       try {
-        const response = await fetch("http://127.0.0.1:5000/auth/login", {
+        const response = await fetch(`${renderUrl}/auth/login`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -47,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const role = document.getElementById("role").value;
 
       try {
-        const response = await fetch("http://127.0.0.1:5000/auth/register", {
+        const response = await fetch(`${renderUrl}/auth/register`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

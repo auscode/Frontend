@@ -1,6 +1,7 @@
+const renderUrl = "https://lib-mgmt.onrender.com";
 document.addEventListener("DOMContentLoaded", () => {
   async function loadMembers() {
-    const response = await fetch("http://127.0.0.1:5000/users/", {
+    const response = await fetch(`${renderUrl}/users/`, {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("accessToken"),
       },
@@ -39,20 +40,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (newUsername) {
       try {
-        const response = await fetch(
-          `http://127.0.0.1:5000/users/${memberId}`,
-          {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: "Bearer " + localStorage.getItem("accessToken"),
-            },
-            body: JSON.stringify({
-              username: newUsername,
-              password: newPassword,
-            }),
-          }
-        );
+        const response = await fetch(`${renderUrl}/users/${memberId}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + localStorage.getItem("accessToken"),
+          },
+          body: JSON.stringify({
+            username: newUsername,
+            password: newPassword,
+          }),
+        });
 
         const data = await response.json();
         if (response.ok) {
@@ -71,15 +69,12 @@ document.addEventListener("DOMContentLoaded", () => {
   async function deleteMember(memberId) {
     if (confirm("Are you sure you want to delete this member?")) {
       try {
-        const response = await fetch(
-          `http://127.0.0.1:5000/users/${memberId}`,
-          {
-            method: "DELETE",
-            headers: {
-              Authorization: "Bearer " + localStorage.getItem("accessToken"),
-            },
-          }
-        );
+        const response = await fetch(`${renderUrl}/users/${memberId}`, {
+          method: "DELETE",
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("accessToken"),
+          },
+        });
 
         const data = await response.json();
         if (response.ok) {
@@ -101,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (username && password) {
       try {
-        const response = await fetch("http://127.0.0.1:5000/users/add", {
+        const response = await fetch(`${renderUrl}/users/add`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

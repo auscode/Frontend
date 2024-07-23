@@ -1,3 +1,4 @@
+const renderUrl = "https://lib-mgmt.onrender.com";
 document.addEventListener("DOMContentLoaded", () => {
   const addBookForm = document.getElementById("addBookForm");
   const updateBookForm = document.getElementById("updateBookForm");
@@ -13,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const author = document.getElementById("author").value;
 
       try {
-        const response = await fetch("http://127.0.0.1:5000/books/", {
+        const response = await fetch(`${renderUrl}/books/`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -43,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const author = document.getElementById("author").value;
 
       try {
-        const response = await fetch(`http://127.0.0.1:5000/books/${id}`, {
+        const response = await fetch(`${renderUrl}/books/${id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -71,15 +72,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const id = document.getElementById("id").value;
       console.log(id);
       try {
-        const response = await fetch(
-          `http://127.0.0.1:5000/books/${id}/borrow`,
-          {
-            method: "POST",
-            headers: {
-              Authorization: "Bearer " + localStorage.getItem("accessToken"),
-            },
-          }
-        );
+        const response = await fetch(`${renderUrl}/books/${id}/borrow`, {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("accessToken"),
+          },
+        });
         const data = await response.json();
         console.log(data);
         if (response.ok) {
@@ -100,15 +98,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const id = document.getElementById("id").value;
 
       try {
-        const response = await fetch(
-          `http://127.0.0.1:5000/books/${id}/return`,
-          {
-            method: "POST",
-            headers: {
-              Authorization: "Bearer " + localStorage.getItem("accessToken"),
-            },
-          }
-        );
+        const response = await fetch(`${renderUrl}/books/${id}/return`, {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("accessToken"),
+          },
+        });
 
         const data = await response.json();
         if (response.ok) {
@@ -126,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (booksList) {
     async function loadBooks() {
       try {
-        const response = await fetch("http://127.0.0.1:5000/books/view", {
+        const response = await fetch(`${renderUrl}/books/view`, {
           method: "GET",
           headers: {
             Authorization: "Bearer " + localStorage.getItem("accessToken"),
@@ -197,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const id = document.getElementById("id").value;
 
       try {
-        const response = await fetch(`http://127.0.0.1:5000/books/${id}`, {
+        const response = await fetch(`${renderUrl}/books/${id}`, {
           method: "DELETE",
           headers: {
             Authorization: "Bearer " + localStorage.getItem("accessToken"),
