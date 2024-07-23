@@ -133,12 +133,10 @@ document.addEventListener("DOMContentLoaded", () => {
         if (response.ok) {
           booksList.innerHTML = "";
 
-          // Create table elements
           const table = document.createElement("table");
           const thead = document.createElement("thead");
           const tbody = document.createElement("tbody");
 
-          // Create table headers
           const headers = ["Book ID", "Title", "Author", "Status"];
           const headerRow = document.createElement("tr");
           headers.forEach((headerText) => {
@@ -150,7 +148,6 @@ document.addEventListener("DOMContentLoaded", () => {
           table.appendChild(thead);
           table.appendChild(tbody);
 
-          // Populate table rows with book data
           data.forEach((book) => {
             const row = document.createElement("tr");
 
